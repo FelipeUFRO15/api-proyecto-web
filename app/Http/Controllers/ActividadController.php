@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Usuario;
+use App\Actividad;
 
-class UsuarioController extends Controller
+class ActividadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return Usuario::all();
+        return Actividad::all();
     }
 
     /**
@@ -35,7 +35,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        Usuario::create($request->all());
+        Actividad::create($request->all());
         return ['created'=> true];
     }
 
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        return Usuario::find($id);
+        return Actividad::find($id);
     }
 
     /**
@@ -70,8 +70,8 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = Usuario::find($id);
-        $usuario->update($request->all());
+        $actividad = Actividad::find($id);
+        $actividad->update($request->all());
         return ['updated' => true];
     }
 
@@ -83,7 +83,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        Usuario::destroy($id);
+        Actividad::destroy($id);
         return ['deleted' => true];
     }
 }
