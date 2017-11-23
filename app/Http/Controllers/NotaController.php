@@ -14,7 +14,7 @@ class NotaController extends Controller
      */
     public function index()
     {
-        //
+        return Nota::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class NotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Nota::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        //
+        return Nota::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class NotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nota = Nota::find($id);
+        $nota->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class NotaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Nota::destroy($id);
+        return ['deleted' => true];
     }
+}
 }

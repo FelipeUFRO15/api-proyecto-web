@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return Usuario::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Usuario::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        return Usuario::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = Usuario::find($id);
+        $usuario->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Usuario::destroy($id);
+        return ['deleted' => true];
     }
+}
 }

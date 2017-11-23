@@ -14,7 +14,7 @@ class ApunteController extends Controller
      */
     public function index()
     {
-        //
+        return Apunte::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class ApunteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Apunte::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class ApunteController extends Controller
      */
     public function show($id)
     {
-        //
+        return Apunte::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class ApunteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $apunte = Apunte::find($id);
+        $apunte->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,7 @@ class ApunteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Apunte::destroy($id);
+        return ['deleted' => true];
     }
 }

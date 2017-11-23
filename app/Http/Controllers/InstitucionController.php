@@ -14,7 +14,7 @@ class InstitucionController extends Controller
      */
     public function index()
     {
-        //
+        return Institucion::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class InstitucionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Institucion::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class InstitucionController extends Controller
      */
     public function show($id)
     {
-        //
+        return Institucion::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class InstitucionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $institucion = Institucion::find($id);
+        $institucion->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class InstitucionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Institucion::destroy($id);
+        return ['deleted' => true];
     }
+}
 }

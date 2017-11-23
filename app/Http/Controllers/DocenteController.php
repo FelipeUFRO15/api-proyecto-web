@@ -14,7 +14,7 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        //
+        return Docente::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Docente::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        //
+        return Docente::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $docente = Docente::find($id);
+        $docente->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Docente::destroy($id);
+        return ['deleted' => true];
     }
+}
 }

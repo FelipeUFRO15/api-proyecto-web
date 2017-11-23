@@ -14,7 +14,7 @@ class Tipo_actividadController extends Controller
      */
     public function index()
     {
-        //
+        return Tipo_actividad::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class Tipo_actividadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tipo_actividad::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class Tipo_actividadController extends Controller
      */
     public function show($id)
     {
-        //
+        return Tipo_actividad::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class Tipo_actividadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tipo_actividad = Tipo_actividad::find($id);
+        $tipo_actividad->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class Tipo_actividadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tipo_actividad::destroy($id);
+        return ['deleted' => true];
     }
+}
 }

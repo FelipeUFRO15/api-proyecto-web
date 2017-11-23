@@ -14,7 +14,7 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        //
+        return Asignatura::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class AsignaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Asignatura::create($request->all());
+        return ['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class AsignaturaController extends Controller
      */
     public function show($id)
     {
-        //
+        return Asignatura::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class AsignaturaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asignatura = Asignatura::find($id);
+        $asignatura->update($request->all());
+        return ['updated' => true];
     }
 
     /**
@@ -80,6 +83,8 @@ class AsignaturaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Asignatura::destroy($id);
+        return ['deleted' => true];
     }
+}
 }
