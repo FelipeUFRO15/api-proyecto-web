@@ -19,7 +19,11 @@ class Usuario extends Model
     ];
 
     public function institucion() {
-    	return $this->belongsTo('App\institucion', 'institucion_id');
+    	return $this->belongsTo('App\Institucion', 'institucion_id');
+    }
+
+    public function asignatura() {
+        return $this->hasMany('App\Asignatura', 'usuario_id');
     }
 
     public $timestamps = false;
