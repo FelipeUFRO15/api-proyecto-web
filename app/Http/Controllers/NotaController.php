@@ -14,7 +14,15 @@ class NotaController extends Controller
      */
     public function index()
     {
-        return Nota::all();
+        $notas = Nota::all();
+
+        foreach ($notas as $nota) {
+            foreach ($nota->actividad as $actividad) {
+                //
+            }
+        }
+
+        return $notas;
     }
 
     /**
@@ -47,7 +55,13 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        return Nota::find($id);
+        $nota = Nota::find($id);
+
+        foreach ($nota->actividad as $actividad) {
+            //
+        }
+
+        return $nota;
     }
 
     /**
@@ -86,5 +100,4 @@ class NotaController extends Controller
         Nota::destroy($id);
         return ['deleted' => true];
     }
-}
 }

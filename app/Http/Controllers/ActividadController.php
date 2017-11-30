@@ -14,7 +14,18 @@ class ActividadController extends Controller
      */
     public function index()
     {
-        return Actividad::all();
+        $actividades = Actividad::all();
+
+        foreach ($actividades as $actividad) {
+            foreach ($actividad->tipo_actividad as $tipo) {
+                //
+            }
+
+            foreach ($actividad->asignatura as $asignatura) {
+                //
+            }
+        }
+        return $actividades;
     }
 
     /**
@@ -47,7 +58,17 @@ class ActividadController extends Controller
      */
     public function show($id)
     {
-        return Actividad::find($id);
+        $actividad = Actividad::find($id);
+
+        foreach ($actividad->tipo_actividad as $tipo) {
+            //
+        }
+
+        foreach ($actividad->asignatura as $asignatura) {
+            //
+        }
+
+        return $actividad;
     }
 
     /**

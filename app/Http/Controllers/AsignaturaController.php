@@ -14,7 +14,19 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        return Asignatura::all();
+        $asignaturas = Asignatura::all();
+
+        foreach ($asignaturas as $asignatura) {
+            foreach ($asignatura->usuario as $usuario) {
+                //
+            }
+
+            foreach ($asignatura->docente as $docente) {
+                //
+            }
+        }
+
+        return $asignaturas;
     }
 
     /**
@@ -47,7 +59,17 @@ class AsignaturaController extends Controller
      */
     public function show($id)
     {
-        return Asignatura::find($id);
+        $asignatura = Asignatura::find($id);
+
+        foreach ($asignatura->usuario as $usuario) {
+            //
+        }
+
+        foreach ($asignatura->docente as $docente) {
+            //
+        }
+            
+        return $asignatura;
     }
 
     /**
@@ -86,5 +108,4 @@ class AsignaturaController extends Controller
         Asignatura::destroy($id);
         return ['deleted' => true];
     }
-}
 }

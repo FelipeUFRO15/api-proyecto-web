@@ -14,7 +14,15 @@ class ApunteController extends Controller
      */
     public function index()
     {
-        return Apunte::all();
+        $apuntes = Apunte::all();
+
+        foreach ($apuntes as $apunte) {
+            foreach ($apunte->asignatura as $asignatura) {
+                //
+            }
+        }
+
+        return $apuntes;
     }
 
     /**
@@ -47,7 +55,13 @@ class ApunteController extends Controller
      */
     public function show($id)
     {
-        return Apunte::find($id);
+        $asignatura = Apunte::find($id);
+
+        foreach ($apunte->asignatura as $asignatura) {
+            //
+        }
+
+        return $asignatura;
     }
 
     /**
