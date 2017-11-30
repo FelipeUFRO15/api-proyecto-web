@@ -2,20 +2,19 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
+    use Notifiable;
+
     protected $table = 'usuarios';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
     	'nombre_usuario', 'email', 'password', 'institucion_id', 'url_foto_usuario',
-    ];
-
-    protected $hidden = [
-    	'password',
     ];
 
     public function institucion() {
@@ -26,5 +25,7 @@ class Usuario extends Model
         return $this->hasMany('App\Asignatura', 'usuario_id');
     }
 
-    public $timestamps = false;
+    protected $hidden = [
+        'password', 'remeber_token',
+    ];
 }
