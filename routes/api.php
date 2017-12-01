@@ -27,5 +27,7 @@ Route::group(['middleware'=>'jwt.auth'], function () {
 	Route::apiResource('instituciones','InstitucionController');
 	Route::apiResource('notas','NotaController');
 	Route::apiResource('tipos_actividades','Tipo_actividadController');
+	Route::get('/usuarioLogueado', 'AuthController@getAuthenticatedUser');
 });
+
 Route::apiResource('usuarios','UsuarioController');
