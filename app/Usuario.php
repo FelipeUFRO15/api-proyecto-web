@@ -28,4 +28,6 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remeber_token',
     ];
+
+    public $timestamps = false;
 }
