@@ -87,4 +87,3 @@ class Tipo_actividadController extends Controller
         return ['deleted' => true];
     }
 }
-}

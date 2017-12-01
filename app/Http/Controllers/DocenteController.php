@@ -87,4 +87,3 @@ class DocenteController extends Controller
         return ['deleted' => true];
     }
 }
-}

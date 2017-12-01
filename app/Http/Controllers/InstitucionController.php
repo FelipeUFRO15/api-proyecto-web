@@ -87,4 +87,3 @@ class InstitucionController extends Controller
         return ['deleted' => true];
     }
 }
-}
