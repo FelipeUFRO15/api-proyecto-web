@@ -27,5 +27,5 @@ Route::group(['middleware'=>'jwt.auth'], function () {
 	Route::apiResource('instituciones','InstitucionController');
 	Route::apiResource('notas','NotaController');
 	Route::apiResource('tipos_actividades','Tipo_actividadController');
-	Route::apiResource('usuarios','UsuarioController');
 });
+Route::apiResource('usuarios','UsuarioController');
