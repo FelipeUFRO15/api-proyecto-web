@@ -48,6 +48,14 @@ class UsuarioController extends Controller
     }
 
     /**
+    * $usuario = $request->all();
+    * echo $usuario;
+    * $usuario.password = bcrypt($usuario.password);
+    * Usuario::create($usuario);
+    * return ['created'=> true];
+    */
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
